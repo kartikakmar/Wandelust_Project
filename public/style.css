@@ -1,0 +1,167 @@
+ /* Home page */
+ body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+ }
+ .container{
+    flex: 1rem; 
+ }
+ .home-page{
+    height: 300px;
+    background-color: antiquewhite;
+    text-align: center;
+ }
+ .user{
+    padding-top:  80px;
+ }
+
+ /* Navbar */
+.navbar{
+    height: 5rem;
+    position: fixed;
+   font-size: large;
+  font-style:normal;
+   background-color: black;
+}
+.navbar-expand-lg{
+    background-color: aquamarine;
+}
+.login-sinup{
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.navbar-brand{
+    margin-right: 150px;
+
+}
+.login-sinup{
+   display: flex;
+   margin-left: 10px; 
+}
+.fa-user{
+    padding:  15px;
+    height: 3rem;
+    width: 3rem;
+    color: black;
+}
+.nav-link{
+    color: rgb(20, 141, 66) !important;
+}
+
+.fa-compass{
+    color: rgb(218, 87, 87);
+    font-size: 2rem;
+    
+}
+.heding{
+    text-decoration: none;
+    color: black;
+    font-size: 2rem;
+    font-style: oblique;
+}
+.collapse{
+    margin-left: 100px;
+}
+.search-bar{
+    margin-left: 200px 
+}
+
+/* Footer */
+
+.f-inf-socil{
+    font-size: 20px;
+    display: flex;
+    display: inline-block;
+    margin-left: 20px;
+    color: black;
+    margin-left: 100px;
+
+}
+.f-info-link{
+    margin-left: 20px;
+   color: black;
+   text-decoration: none;
+   
+}
+.f-info-bottom{
+    font-size: 20px;
+    margin-left: 20px;
+    text-decoration: none;
+    color: black;
+}
+.f-info{
+    
+    display: inline-block;
+    margin-right: 500px;
+}
+.f-info a:hover{
+    text-decoration: underline;
+}
+
+/* card */
+.Category{
+    text-align: center;
+    margin-top: 10px;  
+}
+.card{
+    border: none !important
+}
+.card-img-top{
+    border-radius: 10px;
+}
+.card:hover{
+    opacity: 0.8;
+    background-color: aliceblue;
+}
+
+.price-country{
+    display: inline-block;
+}
+
+
+/* New post */
+
+.add-btn{
+    background-color: rgb(209, 86, 103);
+    border: 0cap;
+    border-radius: 10px;
+}
+
+.form-add{
+    border: 2px solid black !important ;
+    border-radius: 10px;
+    width: 70%;
+    align-items: center;
+    margin-left: 150px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.show-img{
+    height: 300px !important;
+    width:500px !important;
+    border: 10px !important;
+}
+.show-div{
+    margin-top: 20px;
+}
+
+.show-detail{
+    padding-left: 70px !important
+}
+
+.edit-btn{
+    background-color: rgb(226, 122, 122);
+    color: aliceblue;
+}
+.delete-btn{
+    color: aliceblue;
+    background-color: rgb(58, 57, 57);
+}
+
+.Error{
+    margin-top: 10px;
+ 
+}

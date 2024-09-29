@@ -1,0 +1,91 @@
+<%layout("/layout/boilerplate.ejs") -%>
+<body>
+    <div class=" mb-3 show-div">
+        <div class="row g-0">
+            <div class="col-md-4 show-img-div" >
+              <img src="<%=data.image.url%>"  class="img-fluid rounded-start show-img card" alt="My place">
+            </div>
+            <div class="col-md-8 show-detail">
+              <div class="card-body">
+                <h5 class="card-title"><%=data.title%></h5><br>
+                <P>Woned by&nbsp;&nbsp;&nbsp;<i style="text-decoration: underline;"><%=data.owner.firstname%> <%=data.owner.lastname%></i></P>
+                <p class="card-text"><%=data.description%></p>
+                <p> <p style="text-decoration:line-through; display: flex; display: inline;">&#8377;5,000</P> &nbsp;&nbsp;&nbsp;<b>&#8377;&nbsp;<%=data.price.toLocaleString("en-IN")%></b></p>
+                <p>Location:&nbsp;&nbsp;&nbsp;<%=data.country%></p>
+                <hp>Country:&nbsp;&nbsp;&nbsp;<%=data.location%></hp><br>
+                
+                <%if(curruser && data.owner._id.equals(curruser._id)){%>
+                <div class="show-btn" style="margin-top:20px ;">
+                  <form method="post" 
+                       action="http://localhost:8080/listing/<%=data._id%>/delete?_method=DELETE" 
+                       style="display: flex; display: inline;"> 
+                       <button class="delete-btn">delete</button>
+                  </form> &nbsp;&nbsp;&nbsp;&nbsp;
+                  <form method="get"
+                      action="http://localhost:8080/listing/update/<%=data._id%>" 
+                      style="display: flex; display: inline-block;">
+                      <button class="edit-btn">Update</button>
+                  </form>
+                </div>  
+                <%}%>
+                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+        </div>
+        <hr>
+       
+        <%if(curruser){%>
+        <div>
+          <h1>Post Reviews</h1>
+          <form method="post" action="http://localhost:8080/listing/<%=data._id%>/reviews" class="form-add  needs-validation" novalidate>
+          
+          <div>
+            <fieldset class="starability-slot">
+              <!-- <label for="rating" class="form-label">Rating</label><br> -->
+              <legend>First rating:</legend>
+              <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+              <input type="radio" id="first-rate1" name="rating" value="1" />
+              <label for="first-rate1" title="Terrible">1 star</label>
+              <input type="radio" id="first-rate2" name="rating" value="2" />
+              <label for="first-rate2" title="Not good">2 stars</label>
+              <input type="radio" id="first-rate3" name="rating" value="3" />
+              <label for="first-rate3" title="Average">3 stars</label>
+              <input type="radio" id="first-rate4" name="rating" value="4" />
+              <label for="first-rate4" title="Very good">4 stars</label>
+              <input type="radio" id="first-rate5" name="rating" value="5" />
+              <label for="first-rate5" title="Amazing">5 stars</label>
+            </fieldset>
+          </div>
+
+            <div>
+              <label for="content" class="form-label">Add Connent</label><br>
+              <textarea type="text" id="content" cols="40" rows="3" class="form-control" name="content" required></textarea>
+              <div class="invalid-feedback">Content shoud be valid !</div>
+            </div><br>
+            <button>submit</button>
+          </form>
+        </div>
+        <%}%>
+  <h4>Review listing</h4>
+  <div class="row">
+  <% for(review of data.reviews){%>
+    <div class="card col-5 mb-3 ms-3" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%=review.author.username%></h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary"><%=review.comment%></h6>
+        <p class="card-text"><%=review.rating%> start</p>
+        <p class="starability-result card-text" data-rating="<%=review.rating%>">Rated: 3 stars</p>
+        <a href="#" class="card-link">card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+      <form method="post" action="http://localhost:8080/listing/<%=data._id%>/reviews/<%=review._id%>/delete?_method=DELETE">
+        <button>Delete</button>
+      </form>
+    </div>
+  <%}%>
+</div>
+</div>
+
+  <script src="/js/script.js"></script>
+
+</body>

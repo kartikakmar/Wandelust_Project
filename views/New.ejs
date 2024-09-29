@@ -1,0 +1,87 @@
+<%layout("/layout/boilerplate.ejs") -%>
+<body>
+    <br><br>
+    
+    <form method="post" action="http://localhost:8080/listing/createnew/add" class="needs-validation" novalidate enctype="multipart/form-data">
+        <h1 >Add New post</h1><br>
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" 
+            placeholder="Title" 
+            name="title" 
+            id="title" 
+            class="form-control"
+            required
+            />
+            <div class="invalid-feedback">Title shoud be valid !</div>
+            <div class="valid-feedback">Valid Title</div>
+            <br>
+        </div>
+
+        <div class="mb-3">
+            <label for="discription" class="form-label"> Description</label>
+            <textarea placeholder="Description" 
+            name="discription" 
+            class="form-control" 
+            id="discription"
+            required
+            ></textarea>
+            <div class="invalid-feedback">Discriptin shoud be valid !</div>
+            <div class="valid-feedback">Valid disecription</div>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Uplode image</label>
+            <input type="file"
+             id="image"
+             name="image" 
+             class="form-control"
+             required>
+
+             <br>
+        </div>
+
+        <div class="row">
+            <div class="mb-3 col-md-4">
+                <label for="price" class="form-label">Price</label>
+                <input type="text" 
+                placeholder="Price" 
+                name="price" 
+                class="form-control" 
+                id="price" 
+                required
+                />
+                <div class="invalid-feedback">Price should  be valid !</div>
+            </div>
+            <div class="mb-3 col-md-8">
+                <label for="country" class="form-label">Country</label>
+                <input type="text" 
+                placeholder="Coutry" 
+                name="country" 
+                class="form-control" 
+                id="country"
+                required
+                />
+                <div class="invalid-feedback">Country name should be Valid !</div>
+                <div class="valid-feedback">Valid country</div>
+                <br>
+            </div>    
+        </div>
+
+        <div>
+            <label for="location" class="form-label">Location</label>
+            <input type="text" 
+            placeholder="Location" 
+            name="location" 
+            id="location" 
+            class="form-control"
+            required
+            />
+            <div class="invalid-feedback">Location shoud be valid !</div>
+            <div class="valid-feedback">Valid location</div>
+            <br>
+        </div>
+        <button class="add-btn">Add List</button>
+        <br>
+    </form>
+</body>
+</html>

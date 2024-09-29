@@ -1,0 +1,67 @@
+<style>
+  .btn-search{
+    background-color: #fe424d;
+    color: white;
+    border: black;
+    border-radius: 2rem;
+  }
+  .btn-search:hover{
+    background-color: #fe424d;
+    color: white;
+    border: black;
+  }
+  .btn.btn-search i{
+    display: inline;
+    margin-right:0.5rem;
+  }
+  .btn-search-input{
+    border-radius: 2rem;
+  }
+
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><i class="fa-solid fa-compass"></i></a>
+          <a class="heding">APPNA PLACE</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+          data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" 
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="navbar-nav search-bar">
+            <form class="d-flex" role="search">
+              <input class="form-control me-2 btn-search-input" type="search" placeholder="Search destination">
+              <button class="btn btn-outline-success btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+            </form>
+          </div>
+
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="http://localhost:8080/listing/home">Home</a>
+              <a class="nav-link" href="http://localhost:8080/listing">Exploer</a>
+              <a class="nav-link" href="http://localhost:8080/listing/new/render">Add new Listing</a>
+            </div>
+
+            <div class="navbar-nav  login-sinup">
+              <%if(!curruser){%>
+                <a class="nav-link" href="http://localhost:8080/userlogin">Login</a>
+                <a class="nav-link" href="http://localhost:8080/usersinup">Sinup</a>
+              <%}%>
+
+                <%if(curruser){%>
+                 <a class="nav-link" href="http://localhost:8080/logout">Logout</a>
+                <%}%>
+              
+              <a href="#"><i class="fa-solid fa-user"></i></a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" 
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" 
+      crossorigin="anonymous">
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<%layout("/layout/boilerplate.ejs") -%>
+<body>
+    <br><br>
+    <form method="post" action="http://localhost:8080/listing/<%=data._id%>/editadd?_method=PATCH" class="form-add needs-validation" novalidate enctype="multipart/form-data">
+        <h1>Update Post</h1><br>
+        <div>
+            <label for="title" class="form-label">Title</label>
+            <input type="text" value="<%=data.title%>" name="title" id="title" class="form-control" /><br>
+        </div>
+
+        <div>
+            <label for="discription" class="form-label"> Description</label>
+            <textarea aria-valuenow="<%=data.description%>" name="discription" class="form-control" id="discription" required></textarea>
+            <div class="invalid-feedback">Discriptin shoud be valid !</div><br>
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Uplode Image</label>
+            <input id="image" name="image" type="file" class="form-control" readonly>
+            <div class="invalid-feedback">image shoud be valid !</div>
+        </div>
+
+        <div class="row">
+            <div class="mb-3 col-md-4">
+                <label for="price" class="form-label">Price</label>
+                <input type="text" placeholder="<%=data.price%>" name="price" value="<%=data.price%>" class="form-control" id="price">
+            </div>
+            <div class="mb-3 col-md-8">
+                <label for="country" class="form-label">Country</label>
+                <input type="text" placeholder="<%=data.country%>" name="country"  value="<%=data.country%>" class="form-control" id="country" />
+            </div>    
+        </div>
+
+        <div>
+            <label for="location" class="form-label">Location</label>
+            <input type="text" placeholder="<%=data.location%>" name="location" value="<%=data.location%>" id="location" class="form-control"/>
+        </div>
+    
+        <button class="add-btn">Add List</button>
+        <br>
+    </form>
+
+   
+</body>
+
+
+
+
+<!-- <body>
+     <form method="post" action="http://localhost:8080/listing/<%=data._id%>/editadd?_method=PATCH">
+        <textarea type="text" placeholder="Title" name="title"><%=data.title%></textarea><br><br>
+        <textarea placeholder="Description" name="discription" cols="50" rows="10"><%=data.description%></textarea><br><br>
+        <input type="text" placeholder="Price" name="price" value="<%=data.price%>"><br><br>
+        <input type="text" placeholder="Location" name="location" value="<%=data.location%>"><br><br>
+        <input type="text" placeholder="Coutry" name="country" value="<%=data.country%>"><br><br>
+        <button>Add</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </form>
+</body>
+</html> -->
