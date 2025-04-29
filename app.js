@@ -19,7 +19,8 @@ const passport =require("passport");
 const LocalStrategy=require("passport-local");
 const User=require("./models/user.js");
 
-const DbUrl=process.env.ATLASTDB_URL;
+const DbUrl="mongodb://127.0.0.1:27017/wanderlust";
+//process.env.ATLASTDB_URL
 
 const ExpressError=require("./ExpressError/ExpressError.js");
 

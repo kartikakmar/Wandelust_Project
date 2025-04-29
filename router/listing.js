@@ -16,6 +16,8 @@ const multer  = require('multer')
 const {storage}=require("../cloudConfig.js")
 const upload = multer({storage})
 
+
+
 //Home Router
 
 router.get("/home",(req,res)=>{
@@ -26,14 +28,14 @@ router.get("/home",(req,res)=>{
 //index router
 router.get("/", asyncronus(listingContoller.index))
 
-//show router
-router.get("/:id",asyncronus(listingContoller.shwolisting));
-
 //new router
 router.get("/new/render",isLoggedIn, asyncronus(listingContoller.rendernew));
 
 //Create router
 router.post("/createnew/add",upload.single('image'),validatelisting,asyncronus(listingContoller.createlisting));
+
+//show router
+router.get("/:id",asyncronus(listingContoller.shwolisting));
 
 //udate render
 router.get("/update/:id", isLoggedIn, isOwnner, asyncronus(listingContoller.updaterender));
@@ -43,17 +45,19 @@ router.patch("/:id/editadd",isOwnner,upload.single('image'),validatelisting,asyn
 
 //delete router
 router.delete("/:id/delete", isLoggedIn, isOwnner, asyncronus( listingContoller.deletelisting));
+ 
 
 
-function asyncronus(fn){
-    return function (req,res,next){
-        fn(req,res,next).catch((err)=>next(err));
-    }
-} 
+function asyncronus(fn) {
+  return function (req, res, next) {
+    Promise.resolve(fn(req, res, next)).catch(next);
+  };
+}
 
-router.use((err, req,res, next)=>{
-        let {status=500,message="some Error"}=err;
-       res.status(status).render("Error.ejs",{message}); 
-    });
+router.use((err, req, res, next) => {
+    console.error(err.stack); // ✅ Log the error for debugging
+    let { status = 500, message = "Something went wrong" } = err;
+    res.status(status).render("Error.ejs", { message });
+});
 
 module.exports=router;
